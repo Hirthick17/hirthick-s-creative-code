@@ -11,12 +11,12 @@ import {
 
 const ContactSection = () => {
   const links = [
-    { icon: Linkedin, label: "LinkedIn", href: "#", description: "Connect professionally" },
-    { icon: Github, label: "GitHub", href: "#", description: "View my code" },
-    { icon: Code2, label: "LeetCode", href: "#", description: "Problem solving" },
-    { icon: Youtube, label: "YouTube", href: "#", description: "Watch my content" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/hirthick-srinivaasan-7b426b26b/", description: "Connect professionally" },
+    { icon: Github, label: "GitHub", href: "https://github.com/Hirthick17", description: "View my code" },
+    { icon: Code2, label: "LeetCode", href: "https://leetcode.com/u/6Dkg6YOmcb/", description: "Problem solving" },
+    { icon: Youtube, label: "YouTube", href: "https://www.youtube.com/@Hirthicks-Vision", description: "Watch my content" },
     { icon: Mail, label: "Email", href: "mailto:hirthicksrinivaasan2@gmail.com", description: "Send a message" },
-    { icon: FileText, label: "Resume", href: "https://drive.google.com/file/d/1QwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQwQw/view?usp=sharing", description: "Download CV" },
+    { icon: FileText, label: "Resume", href: "https://drive.google.com/file/d/1sFNLsmJIwpMbASpG7HE3ycyUDR3GY9iJ/view", description: "Download CV" },
   ];
 
   return (

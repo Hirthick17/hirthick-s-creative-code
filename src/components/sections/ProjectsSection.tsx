@@ -16,7 +16,7 @@ const ProjectsSection = () => {
         "AI-vibe coding approach saving dozens of development hours",
       ],
       color: "from-rose-500/20 to-pink-500/20",
-      links: { demo: "#", github: "https://github.com/Hirthick17/Embedded-ML-Based-Environmental-Sensor-System-using-Arduino-Nano" },
+      links: { demo: "#", github: "https://github.com/Hirthick17/Liraza-AI-Powered-Mood-Tracking-Emotional-Support-Web-App" },
     },
     {
       icon: Cpu,
@@ -31,7 +31,7 @@ const ProjectsSection = () => {
         "Enables smart features on basic electronic devices",
       ],
       color: "from-blue-500/20 to-cyan-500/20",
-      links: { demo: "#", github: "https://github.com/Hirthick17/Liraza-AI-Powered-Mood-Tracking-Emotional-Support-Web-App" },
+      links: { demo: "#", github: "https://github.com/Hirthick17/Embedded-ML-Based-Environmental-Sensor-System-using-Arduino-Nano" },
     },
   ];
 
