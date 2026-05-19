@@ -1,111 +1,151 @@
-import { 
-  Video, 
-  Camera, 
-  PenTool, 
-  Sparkles,
-  Code,
-  Database,
-  Globe,
-  Cpu,
-  Terminal,
-  Wand2
+import { motion } from "framer-motion";
+import {
+  Code2, Database, Lock, Globe, BrainCircuit,
+  MessageSquare, GitBranch, Boxes, BarChart3, FileText, Camera, Video,
 } from "lucide-react";
 
-const SkillsSection = () => {
-  const skillCategories = [
-    {
-      title: "Creative & Content",
-      icon: Video,
-      skills: [
-        { name: "Video Editing", icon: Video },
-        { name: "Videography", icon: Camera },
-        { name: "Graphic Design", icon: PenTool },
-        { name: "Content Creation", icon: Sparkles },
-        { name: "Storytelling", icon: Wand2 },
-      ],
-    },
-    {
-      title: "Programming",
-      icon: Code,
-      skills: [
-        { name: "Python", icon: Code },
-        { name: "C & C++", icon: Terminal },
-        { name: "JavaScript", icon: Code },
-        { name: "Data Structures", icon: Database },
-        { name: "Operating Systems", icon: Cpu },
-      ],
-    },
-    {
-      title: "Web Development",
-      icon: Globe,
-      skills: [
-        { name: "React.js", icon: Code },
-        { name: "HTML & CSS", icon: Globe },
-        { name: "Node.js & Axios", icon: Terminal },
-        { name: "MySQL & Supabase", icon: Database },
-        { name: "Docker", icon: Cpu },
-      ],
-    },
-    {
-      title: "Modern Tools",
-      icon: Wand2,
-      skills: [
-        { name: "Prompt Engineering", icon: Wand2 },
-        { name: "Vibe Coding", icon: Sparkles },
-        { name: "AI Tools", icon: Cpu },
-      ],
-    },
-  ];
+interface SkillGroup {
+  category: string;
+  accent: string;
+  span: string;
+  skills: { icon: React.FC<{ size?: number; className?: string }>; name: string }[];
+}
 
-  return (
-    <section id="skills" className="py-24 px-6 bg-secondary/30">
-      <div className="container max-w-6xl mx-auto">
-        <div className="text-center mb-16 space-y-4">
-          <p className="text-primary font-heading font-medium uppercase tracking-wider text-sm">
-            Expertise
-          </p>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold">
-            Skills & <span className="text-gradient">Technologies</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A diverse toolkit built through hands-on projects and real-world experience
-          </p>
-        </div>
+const skillGroups: SkillGroup[] = [
+  {
+    category: "Product Development",
+    accent: "#5B3DF5",
+    span: "col-span-12 md:col-span-7",
+    skills: [
+      { icon: Code2,    name: "Frontend Systems (React, TypeScript)" },
+      { icon: Database, name: "Backend Systems (Node.js, Express)" },
+      { icon: Database, name: "Database Design (MongoDB, SQL)" },
+      { icon: Lock,     name: "Authentication & Security" },
+      { icon: Globe,    name: "REST APIs & Integrations" },
+    ],
+  },
+  {
+    category: "AI & Automation",
+    accent: "#7C5CFF",
+    span: "col-span-12 md:col-span-5",
+    skills: [
+      { icon: BrainCircuit, name: "AI-Assisted Workflows" },
+      { icon: MessageSquare, name: "Prompt Engineering" },
+      { icon: GitBranch,    name: "Automation Systems" },
+      { icon: Boxes,        name: "AI Product Integration" },
+    ],
+  },
+  {
+    category: "Operational Thinking",
+    accent: "#5B3DF5",
+    span: "col-span-12 md:col-span-5",
+    skills: [
+      { icon: BarChart3,  name: "Workflow Analysis" },
+      { icon: GitBranch,  name: "Process Optimization" },
+      { icon: Boxes,      name: "System Design" },
+      { icon: Globe,      name: "Business Problem Understanding" },
+    ],
+  },
+  {
+    category: "Communication & UI/UX",
+    accent: "#7C5CFF",
+    span: "col-span-12 md:col-span-7",
+    skills: [
+      { icon: FileText,     name: "Technical Storytelling & Docs" },
+      { icon: MessageSquare, name: "Product Explanation" },
+      { icon: Camera,       name: "Photoshop & Visual Design" },
+      { icon: Camera,       name: "Google Stitch" },
+      { icon: Video,        name: "Premiere Pro" },
+      { icon: Video,        name: "DaVinci Resolve" },
+    ],
+  },
+];
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {skillCategories.map((category, catIndex) => (
-            <div
-              key={category.title}
-              className="card-elevated rounded-2xl p-8 hover-lift"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 rounded-xl bg-primary/10 text-primary">
-                  <category.icon className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-heading font-semibold">
-                  {category.title}
-                </h3>
-              </div>
+const SkillsSection = () => (
+  <section id="skills" className="relative py-24 md:py-32 px-4 md:px-6 bg-white overflow-hidden">
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#5B3DF5]/5 rounded-full blur-[120px] pointer-events-none" />
 
-              <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill, skillIndex) => (
+    <div className="max-w-[1400px] mx-auto">
+      {/* Header */}
+      <div className="mb-14">
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-[#5B3DF5] text-xs tracking-[0.2em] uppercase font-medium mb-4"
+        >
+          Skills & Capabilities
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] leading-tight"
+        >
+          Not just a stack —{" "}
+          <span style={{ backgroundImage: "linear-gradient(135deg, #5B3DF5, #7C5CFF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            a capability set
+          </span>
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.15 }}
+          className="text-[#6B7280] text-base mt-4 max-w-xl"
+        >
+          Organized by what I can do — not vanity metrics or skill percentages.
+        </motion.p>
+      </div>
+
+      {/* Bento grid */}
+      <div className="grid grid-cols-12 gap-4">
+        {skillGroups.map((group, gi) => (
+          <motion.div
+            key={group.category}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: gi * 0.1, duration: 0.5 }}
+            className={`${group.span} group p-6 md:p-7 rounded-2xl border border-[#E5E7EB] bg-white hover:border-[#5B3DF5]/30 transition-all duration-300 hover:shadow-[0_4px_20px_rgba(91,61,245,0.06)] hover:-translate-y-0.5`}
+          >
+            {/* Category header */}
+            <div className="flex items-center gap-3 mb-6">
+              <div
+                className="w-1 h-6 rounded-full"
+                style={{ background: `linear-gradient(to bottom, ${group.accent}, ${group.accent}40)` }}
+              />
+              <h3 className="font-heading font-semibold text-[#111827] text-base">{group.category}</h3>
+            </div>
+
+            {/* Skills list */}
+            <div className="grid sm:grid-cols-2 gap-2.5">
+              {group.skills.map((skill) => {
+                const Icon = skill.icon;
+                return (
                   <div
                     key={skill.name}
-                    className="group flex items-center gap-2 px-4 py-2.5 rounded-xl bg-secondary/50 hover:bg-primary/10 border border-border/50 hover:border-primary/30 transition-all duration-300 cursor-default"
+                    className="flex items-center gap-2.5 p-3 rounded-xl border border-[#E5E7EB] bg-[#F8F8FC] hover:border-[#5B3DF5]/20 hover:bg-white transition-all duration-200 group/skill cursor-default"
                   >
-                    <skill.icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                    <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                    <div
+                      className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-200 group-hover/skill:scale-110"
+                      style={{ background: `${group.accent}15` }}
+                    >
+                      <Icon size={12} style={{ color: group.accent }} />
+                    </div>
+                    <span className="text-[#6B7280] text-sm font-medium group-hover/skill:text-[#111827] transition-colors duration-200">
                       {skill.name}
                     </span>
                   </div>
-                ))}
-              </div>
+                );
+              })}
             </div>
-          ))}
-        </div>
+          </motion.div>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default SkillsSection;
