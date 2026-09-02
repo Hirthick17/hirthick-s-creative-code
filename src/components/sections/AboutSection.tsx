@@ -61,8 +61,8 @@ const AboutSection = () => (
           <div className="aspect-video bg-[#F8F8FC] flex items-center justify-center rounded-xl overflow-hidden">
             <iframe
               className="w-full h-full rounded-xl"
-              src="https://www.youtube.com/embed?listType=user_uploads&list=Hirthicks-Vision"
-              title="Who is Hirthick?"
+              src="https://www.youtube.com/embed?listType=user_uploads&list=UCHirthicksVision"
+              title="Hirthick's Vision — YouTube Channel"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               loading="lazy"
